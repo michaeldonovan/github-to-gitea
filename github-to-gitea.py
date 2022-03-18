@@ -29,8 +29,9 @@ def mirror_repo(
     github_token: str,
     gh_repo,
 ) -> None:
+    repo_name = gh_repo.full_name.split("/")[1]
     mirror_request = {
-        "repo_name": gh_repo.full_name.replace("/", "-"),
+        "repo_name": repo_name,
         "description": gh_repo.description or "",
         "clone_addr": gh_repo.clone_url,
         "mirror": True,
